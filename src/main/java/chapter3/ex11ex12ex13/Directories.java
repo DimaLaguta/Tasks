@@ -1,4 +1,4 @@
-package chapter3.ex11;
+package chapter3.ex11ex12ex13;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -18,6 +18,15 @@ public class Directories {
         List<String> files = new ArrayList<>();
         //Collections.addAll(files, dir.list(new FileNameFilter(targetExtension)));
         Collections.addAll(files, dir.list((x, y) -> y.toLowerCase().endsWith(targetExtension)));
+        return files;
+    }
+
+    public static List<File> sortFilesByDirAndPath(String path){
+        File dir = new File(path);
+        List<File> files = new ArrayList<>();
+        Collections.addAll(files, dir.listFiles());
+     //   files.sort(Comparator.comparing(File::isFile).thenComparing(File::getPath));
+        files.sort((x1,x2)->Boolean.compare(x1.isFile(),x2.isFile()));
         return files;
     }
 }

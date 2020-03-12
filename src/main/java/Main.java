@@ -1,10 +1,11 @@
-import chapter3.ex11.Directories;
+import chapter3.ex11ex12ex13.Directories;
 import chapter3.ex1ex2.Employee;
 import chapter3.ex1ex2.EmployeeService;
 import chapter3.ex4ex5.*;
 import chapter3.ex9ex10.Greeter;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -39,5 +40,17 @@ public class Main {
         //Exercise 11
         List<File> directories = Directories.directories("D://УНИВЕР");
         List<String> files = Directories.filesWithExtension("D://УНИВЕР","pdf");
+        List<File> files1 = Directories.sortFilesByDirAndPath("D://r");
+
+
+        //Exercise 14
+        chapter3.ex15.Employee[] employees1 = new chapter3.ex15.Employee[3];
+
+
+        employees1[0] = new chapter3.ex15.Employee("Andrey",700);
+        employees1[1] = new chapter3.ex15.Employee("Ivan",900);
+        employees1[2] =new chapter3.ex15.Employee("Alex",600);
+
+        employees1 = chapter3.ex15.EmployeeService.sortBySalaryAndName(employees1);
     }
 }

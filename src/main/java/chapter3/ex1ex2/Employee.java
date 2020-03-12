@@ -3,6 +3,7 @@ package chapter3.ex1ex2;
 public class Employee implements Measurable {
 
     String name;
+    int Salary;
 
     public Employee(String name) {
         this.setName(name);
