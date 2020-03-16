@@ -1,0 +1,15 @@
+{
+  "address" : "Lenin street",
+  "garden" : false,
+  "garage" : true,
+  "rooms" : [ {
+    "name" : "room1",
+    "area" : 34.0
+  }, {
+    "name" : "room2",
+    "area" : 67.0
+  }, {
+    "name" : "room3",
+    "area" : 303.0
+  } ]
+}
