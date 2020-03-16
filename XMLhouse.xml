@@ -1,0 +1,19 @@
+<House>
+  <address>Lenin street</address>
+  <garden>false</garden>
+  <garage>true</garage>
+  <rooms>
+    <rooms>
+      <name>room1</name>
+      <area>34.0</area>
+    </rooms>
+    <rooms>
+      <name>room2</name>
+      <area>67.0</area>
+    </rooms>
+    <rooms>
+      <name>room3</name>
+      <area>303.0</area>
+    </rooms>
+  </rooms>
+</House>

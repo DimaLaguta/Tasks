@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import serialization.House;
 import serialization.Room;
 
@@ -87,7 +88,7 @@ public class Main {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
         try {
-            mapper.writeValue(new FileOutputStream("house.json"), house);
+            mapper.writeValue(new FileOutputStream("JSONhouse.json"), house);
             //System.out.println(mapper.writeValueAsString(house));
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,11 +97,26 @@ public class Main {
         //Deserialization
         House house1;
         try {
-            house1 = (House) mapper.readValue(new FileInputStream("house.json"), House.class);
+            house1 = (House) mapper.readValue(new FileInputStream("JSONhouse.json"), House.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+
+        XmlMapper xmlMapper = new XmlMapper();
+        xmlMapper.configure(SerializationFeature.INDENT_OUTPUT,true);
+        try {
+            xmlMapper.writeValue(new FileOutputStream("XMLhouse.xml"),house);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        House house2;
+        try {
+            house2 = (House) xmlMapper.readValue(new FileInputStream("XMLhouse.xml"), House.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
