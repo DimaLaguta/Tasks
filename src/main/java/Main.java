@@ -1,3 +1,5 @@
+import chapter4.ex9ex11.Example;
+import chapter4.ex9ex11.Ref;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
@@ -7,6 +9,7 @@ import serialization.Room;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -117,10 +120,20 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        Example example = new Example(123,"rfv","qwer");
+
+        try {
+            System.out.println(Ref.ToString(example));
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Ref.helloWorld("Hello World!");
+        } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
     }
-
-
-//    public static void kek(List<String> g) {
-//        //do something
-//    }
 }
