@@ -1,17 +1,8 @@
 import chapter4.ex9ex11.Example;
 import chapter4.ex9ex11.Ref;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
-import serialization.House;
-import serialization.Room;
+import chapter5.ex1ex2ex3ex5ex6.Exercises;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -74,52 +65,52 @@ public class Main {
 //        }});
 
 
-        //Serialization
-        House house = new House();
-
-        house.setAddress("Lenin street");
-        house.setGarage(true);
-        house.setGarden(false);
-
-        List<Room> rooms = new ArrayList<>();
-        rooms.add(new Room("room1", 34));
-        rooms.add(new Room("room2", 67));
-        rooms.add(new Room("room3", 303));
-
-        house.setRooms(rooms);
-
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-        try {
-            mapper.writeValue(new FileOutputStream("JSONhouse.json"), house);
-            //System.out.println(mapper.writeValueAsString(house));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //Deserialization
-        House house1;
-        try {
-            house1 = (House) mapper.readValue(new FileInputStream("JSONhouse.json"), House.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-        XmlMapper xmlMapper = new XmlMapper();
-        xmlMapper.configure(SerializationFeature.INDENT_OUTPUT,true);
-        try {
-            xmlMapper.writeValue(new FileOutputStream("XMLhouse.xml"),house);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        House house2;
-        try {
-            house2 = (House) xmlMapper.readValue(new FileInputStream("XMLhouse.xml"), House.class);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//        //Serialization
+//        House house = new House();
+//
+//        house.setAddress("Lenin street");
+//        house.setGarage(true);
+//        house.setGarden(false);
+//
+//        List<Room> rooms = new ArrayList<>();
+//        rooms.add(new Room("room1", 34));
+//        rooms.add(new Room("room2", 67));
+//        rooms.add(new Room("room3", 303));
+//
+//        house.setRooms(rooms);
+//
+//        ObjectMapper mapper = new ObjectMapper();
+//        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+//        try {
+//            mapper.writeValue(new FileOutputStream("JSONhouse.json"), house);
+//            //System.out.println(mapper.writeValueAsString(house));
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        //Deserialization
+//        House house1;
+//        try {
+//            house1 = (House) mapper.readValue(new FileInputStream("JSONhouse.json"), House.class);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//
+//        XmlMapper xmlMapper = new XmlMapper();
+//        xmlMapper.configure(SerializationFeature.INDENT_OUTPUT,true);
+//        try {
+//            xmlMapper.writeValue(new FileOutputStream("XMLhouse.xml"),house);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        House house2;
+//        try {
+//            house2 = (House) xmlMapper.readValue(new FileInputStream("XMLhouse.xml"), House.class);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
         Example example = new Example(123,"rfv","qwer");
@@ -130,10 +121,24 @@ public class Main {
             e.printStackTrace();
         }
 
+
+
+//        try {
+//            Ref.helloWorld("Hello World!");
+//        } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
+//            e.printStackTrace();
+//        }
+
+        Exercises ex = new Exercises();
+        double sumOfArray;
         try {
-            Ref.helloWorld("Hello World!");
-        } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException e) {
-            e.printStackTrace();
+            sumOfArray = ex.sumOfValues("Double.txt");
+            System.out.println("Сумма элементов массива "+sumOfArray);
+        } catch (IOException e) {
+            System.out.println("Файл не найден");
+        }catch (NumberFormatException e){
+            System.out.println("Неверный формат числа");
         }
+
     }
 }
