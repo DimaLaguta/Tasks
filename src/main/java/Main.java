@@ -1,8 +1,11 @@
+import API.Rate;
+import API.RateService;
 import chapter4.ex9ex11.Example;
 import chapter4.ex9ex11.Ref;
 import chapter5.ex1ex2ex3ex5ex6.Exercises;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -113,14 +116,13 @@ public class Main {
 //        }
 
 
-        Example example = new Example(123,"rfv","qwer");
+        Example example = new Example(123, "rfv", "qwer");
 
         try {
             System.out.println(Ref.ToString(example));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         }
-
 
 
 //        try {
@@ -133,11 +135,17 @@ public class Main {
         double sumOfArray;
         try {
             sumOfArray = ex.sumOfValues("Double.txt");
-            System.out.println("Сумма элементов массива "+sumOfArray);
+            System.out.println("Сумма элементов массива " + sumOfArray);
         } catch (IOException e) {
             System.out.println("Файл не найден");
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Неверный формат числа");
+        }
+
+        RateService rateService = new RateService();
+        List<Rate> rates = rateService.getRates(145, 292, 298);
+        for (Rate i : rates) {
+            System.out.println(i.toString());
         }
 
     }
