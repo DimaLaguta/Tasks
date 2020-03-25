@@ -1,15 +1,21 @@
-import API.Rate;
-import API.RateService;
 import chapter4.ex9ex11.Example;
 import chapter4.ex9ex11.Ref;
-import chapter5.ex1ex2ex3ex5ex6.Exercises;
+import chapter6.ex15.Exercise15;
+import chapter6.ex1ex2.StackArray;
+import chapter6.ex1ex2.StackArrayObjects;
+import chapter6.ex3ex4.Table;
+import chapter6.ex6.A1;
+import chapter6.ex6.ArrayListService;
+import chapter6.ex6.B2;
+import chapter6.ex6.C3;
+import chapter6.ex7ex8ex9ex10ex11ex12.Pair;
 
-import java.io.IOException;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-//        //Exercise 1,2
+//        //Exercise14 1,2
 //        Employee[] employees = new Employee[10];
 //
 //        for (int i = 0; i < employees.length; i++) {
@@ -19,13 +25,13 @@ public class Main {
 //        EmployeeService.average(employees);
 //
 //
-//        //Exercise 4,5
+//        //Exercise14 4,5
 //        DigitSequence digitSequence = new DigitSequence(12345);
 //        IntSequence digitSequence1 = IntSequence.of(1, 2, 3, 4, 5);
 //
 //        IntSequence intSequence = IntSequence.constant(1);
 //
-//        //Exercise 9
+//        //Exercise14 9
 //        Greeter greeter1 = new Greeter(5, "Max");
 //        Greeter greeter2 = new Greeter(2, "Ivan");
 //
@@ -36,13 +42,13 @@ public class Main {
 //        threadGreeter2.start();
 //
 //
-//        //Exercise 11
+//        //Exercise14 11
 //        List<File> directories = Directories.directories("D://УНИВЕР");
 //        List<String> files = Directories.filesWithExtension("D://УНИВЕР", "pdf");
 //        List<File> files1 = Directories.sortFilesByDirAndPath("D://r");
 //
 //
-//        //Exercise 14
+//        //Exercise14 14
 //        chapter3.ex15.Employee[] employees1 = new chapter3.ex15.Employee[3];
 //
 //
@@ -131,7 +137,7 @@ public class Main {
 //            e.printStackTrace();
 //        }
 
-        Exercises ex = new Exercises();
+     /*   Exercises ex = new Exercises();
         double sumOfArray;
         try {
             sumOfArray = ex.sumOfValues("Double.txt");
@@ -146,7 +152,78 @@ public class Main {
         List<Rate> rates = rateService.getRates(145, 292, 298);
         for (Rate i : rates) {
             System.out.println(i.toString());
-        }
+        }*/
+
+     //ex 1 2
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println(stack.peek());
+
+        StackArrayObjects<Integer> stackArray = new StackArrayObjects<>();
+        stackArray.push(1);
+        stackArray.push(2);
+        stackArray.push(3);
+        System.out.println(stackArray.pop());
+
+
+        StackArray<Integer> integerStackArray = new StackArray<>(Integer.class);
+        integerStackArray.push(1);
+        integerStackArray.push(2);
+        integerStackArray.push(3);
+        System.out.println(integerStackArray.pop());
+
+        //ex 3 4
+        Table<String,Integer> table = new Table<>();
+        table.setValueByKey("qqq",123);
+        table.setValueByKey("ddd",367);
+        table.setValueByKey("vvv",456);
+        System.out.println(table.getValueByKey("ddd"));
+
+        //ex6
+        ArrayList<A1> list1 = new ArrayList<A1>();
+        list1.add(new A1(1,2,3));
+        ArrayList<B2> list2 = new ArrayList<B2>();
+        list2.add(new B2(4,5));
+        ArrayList<C3> list3 = new ArrayList<C3>();
+        list3.add(new C3(6));
+
+//        ArrayList<? extends B2> list4 = new ArrayList<A1>();
+//        ArrayList<? super B2> list5 = new ArrayList<C3>();
+//        list5.add(new B2(00,23));
+
+        ArrayListService d = new ArrayListService();
+
+//        ArrayList<C3> resultSuper = (ArrayList<C3>) d.joinArraysSuper(list3,list2);
+//        resultSuper.forEach(x-> System.out.println(x+" "));
+
+//        ArrayList<B2> resultExtend = (ArrayList<B2>) d.joinArraysExtend(list2,list1);
+//        resultExtend.forEach(x-> System.out.println(x+" "));
+
+        //ex7
+//        Pair<Integer> pair1 = new Pair<>(1,2);
+//        System.out.println(pair1.max());
+//        System.out.println(pair1.min());
+
+
+        //ex9
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        arrayList.add(2);
+        arrayList.add(8);
+        arrayList.add(4);
+        Pair pair2 =  Pair.firstLast(arrayList);
+        System.out.println(pair2);
+
+        ArrayList<Integer> arrayList1 = new ArrayList<>();
+        arrayList1.add(2);
+        arrayList1.add(20);
+        arrayList1.add(243);
+        arrayList1.add(4);
+
+        Integer result = Pair.maxInArray(arrayList1);
+        System.out.println(result);
+
 
     }
 }
