@@ -1,6 +1,5 @@
 import chapter4.ex9ex11.Example;
 import chapter4.ex9ex11.Ref;
-import chapter6.ex15.Exercise15;
 import chapter6.ex1ex2.StackArray;
 import chapter6.ex1ex2.StackArrayObjects;
 import chapter6.ex3ex4.Table;
@@ -154,7 +153,7 @@ public class Main {
             System.out.println(i.toString());
         }*/
 
-     //ex 1 2
+        //ex 1 2
         Stack<Integer> stack = new Stack<>();
         stack.push(1);
         stack.push(2);
@@ -175,17 +174,17 @@ public class Main {
         System.out.println(integerStackArray.pop());
 
         //ex 3 4
-        Table<String,Integer> table = new Table<>();
-        table.setValueByKey("qqq",123);
-        table.setValueByKey("ddd",367);
-        table.setValueByKey("vvv",456);
+        Table<String, Integer> table = new Table<>();
+        table.setValueByKey("qqq", 123);
+        table.setValueByKey("ddd", 367);
+        table.setValueByKey("vvv", 456);
         System.out.println(table.getValueByKey("ddd"));
 
         //ex6
         ArrayList<A1> list1 = new ArrayList<A1>();
-        list1.add(new A1(1,2,3));
+        list1.add(new A1(1, 2, 3));
         ArrayList<B2> list2 = new ArrayList<B2>();
-        list2.add(new B2(4,5));
+        list2.add(new B2(4, 5));
         ArrayList<C3> list3 = new ArrayList<C3>();
         list3.add(new C3(6));
 
@@ -212,7 +211,7 @@ public class Main {
         arrayList.add(2);
         arrayList.add(8);
         arrayList.add(4);
-        Pair pair2 =  Pair.firstLast(arrayList);
+        Pair pair2 = Pair.firstLast(arrayList);
         System.out.println(pair2);
 
         ArrayList<Integer> arrayList1 = new ArrayList<>();
@@ -223,7 +222,6 @@ public class Main {
 
         Integer result = Pair.maxInArray(arrayList1);
         System.out.println(result);
-
 
     }
 }
